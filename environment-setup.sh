@@ -4,7 +4,7 @@ set -e   # stop on command execution failure
 set -u   # exit if an undefined variable is encountered
 
 echo -e "\n\n========== INSTALLING PACKAGES =========="
-cmd_install_tools="sudo apt update && sudo apt install -y baobab cgdb ccache cmake-curses-gui dconf-cli dconf-editor git gparted gpg gnome-shell-extension-manager gnome-shell-extension-prefs gnome-tweaks htop meld net-tools remmina silversearcher-ag tree wget xrdp"
+cmd_install_tools="sudo apt update && sudo apt install -y baobab cgdb ccache clangd cmake-curses-gui dconf-cli dconf-editor g++-12 git gparted gpg gnome-shell-extension-manager gnome-shell-extension-prefs gnome-tweaks htop meld net-tools remmina silversearcher-ag tree wget xrdp"
 echo $cmd_install_tools
 eval $cmd_install_tools
 
@@ -28,6 +28,9 @@ cmd_vscode_setup_4="rm -f packages.microsoft.gpg && sudo apt install apt-transpo
 echo $cmd_vscode_setup_4
 eval $cmd_vscode_setup_4
 
+cmd_vscode_setup_5="mkdir -p /home/$USER/.config/Code/User && cp vscode/user_settings.json /home/$USER/.config/Code/User/settings.json"
+echo $cmd_vscode_setup_5
+eval $cmd_vscode_setup_5
 
 
 
@@ -177,4 +180,9 @@ echo ">>>>>> Please run the 'Extension Manager' app through the GUI. In the app,
 
 
 echo -e "\n\n========== VS CODE SOLARIZED LIGHT =========="
-echo ">>>>>> Open VS Code, press Ctrl+P, and enter the following command in the text field: \"ext install Braver.vscode-solarized\". Once the theme is installed, select the \"solarized light (themed workbench)\" option" 
+echo ">>>>>> Open this folder in VS Code to be prompted to install the recommended extensions" 
+
+
+
+#echo -e "\n\n========== VS CODE SOLARIZED LIGHT =========="
+#echo ">>>>>> Open VS Code, press Ctrl+P, and enter the following command in the text field: \"ext install Braver.vscode-solarized\". Once the theme is installed, select the \"solarized light (themed workbench)\" option" 
