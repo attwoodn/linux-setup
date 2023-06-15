@@ -34,6 +34,15 @@ eval $cmd_vscode_setup_5
 
 
 
+
+echo -e "\n\n========== CONFIGURE CLANGD =========="
+cmd_clang_setup_1="cp .clangd ~/"
+echo $cmd_clang_setup_1
+eval $cmd_clang_setup_1
+
+
+
+
 echo -e "\n\n========== CONFIGURE GNOME TERMINAL =========="
 # dconf list /org/gnome/terminal/legacy/profiles:/   # prints out the current terminal profile ID
 # it should give: :b1dcc9dd-5262-4d8d-a863-c897e6d979b9/
@@ -171,18 +180,13 @@ ResultActive=yes\" | sudo tee /etc/polkit-1/localauthority/50-local.d/45-allow-c
 echo $cmd_rdp_color_config
 eval $cmd_rdp_color_config
 
+
+
+
+echo -e "\n\n========== FINAL MANUAL STEPS =========="
+echo ">>>>>> Open this folder in VS Code to be prompted to install the recommended extensions" 
+
 echo ">>>>>> Please enable the dock in the open application, then close the window"
 gnome-shell-extension-prefs
 
 echo ">>>>>> Please run the 'Extension Manager' app through the GUI. In the app, click 'Browse', then search for 'Allow Locked Remote Desktop'. Once the extension has been identified, install and enable it"
-
-
-
-
-echo -e "\n\n========== VS CODE SOLARIZED LIGHT =========="
-echo ">>>>>> Open this folder in VS Code to be prompted to install the recommended extensions" 
-
-
-
-#echo -e "\n\n========== VS CODE SOLARIZED LIGHT =========="
-#echo ">>>>>> Open VS Code, press Ctrl+P, and enter the following command in the text field: \"ext install Braver.vscode-solarized\". Once the theme is installed, select the \"solarized light (themed workbench)\" option" 

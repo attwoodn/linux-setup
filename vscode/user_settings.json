@@ -1,11 +1,9 @@
 {
-    "cmake.configureOnOpen": false,
     "git.openRepositoryInParentFolders": "never",
-    "cmake.configureOnEdit": false,
-    "C_Cpp.intelliSenseEngine": "disabled",
     "clangd.path": "/usr/bin/clangd",
     "clangd.arguments": ["-log=verbose", 
                          "-pretty", 
                          "--background-index", 
-                         "--compile-commands-dir=${workspaceFolder}/build/"]
+                         "--compile-commands-dir=${workspaceFolder}/build/",
+                         "--enable-config"]
 }

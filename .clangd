@@ -1,0 +1,13 @@
+CompileFlags:
+  Add: [-std=c++1z]
+  Remove: -std=*
+InlayHints:
+  ParameterNames: No
+  DeducedTypes: No
+Diagnostics:
+  UnusedIncludes: Strict
+  ClangTidy:
+    Add: [bugprone-*, modernize*]
+    Remove: [bugprone-easily-swappable-parameters, modernize-use-trailing-return-type]
+    #CheckOptions:
+    #  readability-identifier-naming.VariableCase: CamelCase
