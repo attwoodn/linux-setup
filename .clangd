@@ -7,7 +7,7 @@ InlayHints:
 Diagnostics:
   UnusedIncludes: Strict
   ClangTidy:
-    Add: [bugprone-*, modernize*]
+    Add: [bugprone-*, cert-*, modernize-*, performance-*]
     Remove: [bugprone-easily-swappable-parameters, modernize-use-trailing-return-type]
     #CheckOptions:
     #  readability-identifier-naming.VariableCase: CamelCase

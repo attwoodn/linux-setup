@@ -4,7 +4,7 @@ set -e   # stop on command execution failure
 set -u   # exit if an undefined variable is encountered
 
 echo -e "\n\n========== INSTALLING PACKAGES =========="
-cmd_install_tools="sudo apt update && sudo apt install -y baobab cgdb ccache clangd cmake-curses-gui dconf-cli dconf-editor g++-12 git gparted gpg gnome-shell-extension-manager gnome-shell-extension-prefs gnome-tweaks htop meld net-tools remmina silversearcher-ag tree wget xrdp"
+cmd_install_tools="sudo apt update && sudo apt install -y baobab cgdb ccache clangd cmake-curses-gui dconf-cli dconf-editor g++ g++-12 git gparted gpg gnome-shell-extension-manager gnome-shell-extension-prefs gnome-tweaks htop meld net-tools remmina silversearcher-ag tree wget xrdp"
 echo $cmd_install_tools
 eval $cmd_install_tools
 
