@@ -4,7 +4,7 @@ set -e   # stop on command execution failure
 set -u   # exit if an undefined variable is encountered
 
 echo -e "\n\n========== INSTALLING PACKAGES =========="
-cmd_install_tools="sudo apt update && sudo apt install -y baobab cgdb ccache clangd cmake-curses-gui dconf-cli dconf-editor g++ g++-12 git gparted gpg gnome-shell-extension-manager gnome-shell-extension-prefs gnome-tweaks htop meld net-tools remmina silversearcher-ag tree wget xrdp"
+cmd_install_tools="sudo apt update && sudo apt install -y baobab cgdb ccache clangd-18 clang-format-18 cmake-curses-gui dconf-cli dconf-editor g++ g++-12 git gparted gpg gnome-shell-extension-manager gnome-shell-extension-prefs gnome-tweaks htop meld net-tools remmina silversearcher-ag tree wget xrdp"
 echo $cmd_install_tools
 eval $cmd_install_tools
 
@@ -35,10 +35,14 @@ eval $cmd_vscode_setup_5
 
 
 
-echo -e "\n\n========== CONFIGURE CLANGD =========="
+echo -e "\n\n========== CONFIGURE CLANG TOOLS =========="
 cmd_clang_setup_1="cp .clangd ~/"
 echo $cmd_clang_setup_1
 eval $cmd_clang_setup_1
+
+cmd_clang_setup_2="cp .clang-format ~/"
+echo $cmd_clang_setup_2
+eval $cmd_clang_setup_2
 
 
 

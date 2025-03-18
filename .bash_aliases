@@ -137,3 +137,47 @@ ginfo() {
     
     cd - 1> /dev/null
 }
+
+run-command-and-log-loop() {
+    while true ; do echo "$(date '+TIME:%H:%M:%S') $(echo hi)" | tee -a logfile.txt ; sleep 0.1 ; done
+}
+
+# run without sudo!
+reset-kubernetes-install() {
+    sudo swapoff -a
+    sudo kubeadm reset
+    sudo kubeadm init --pod-network-cidr=192.168.0.0/16
+    mkdir -p $HOME/.kube
+    sudo cp /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    kubectl taint nodes --all node-role.kubernetes.io/master
+}
+
+# use the 'bear' tool to generate compile_commands.json from a build command
+alias generate-compile-commands-json="make -s -C build_files/ clean cleandep DEBUG=1 && bear make -s -C build_files/ DEBUG=1 && mv compile_commands.json build"
+alias build-root="cmake -S . -B build && make -j 10 -C build -s" # configure and build from the project root directory
+alias cmake-trace="cmake .. --trace |& tee ../cmake-output.txt"
+
+alias clang-format-cpp-src="find src -iname \'*.h\' -iname \'*.hpp\' -o -iname \'*.cpp\' -print0 | xargs -0 clang-format-18 -i --style=\'file:/home/noah/.clang-format\'"
+alias clang-format-files="clang-format-18 -i --style=\'file:/home/noah/.clang-format\' <files>"
+
+# enters a running docker container and allows you to execute commands within it
+alias docker-attach-to-container="sudo docker exec -it <container-id> /bin/bash"
+
+# launches a docker container and attaches to it to inspect its contents
+alias docker-launch-and-attach="sudo docker run --rm -it --entrypoint bash <image-name-or-id>"
+
+alias kafka-consumer="kafkacat -C -b 192.168.5.251:9094 -t topic -o end"
+alias kafka-producer="kafkacat -P -b 192.168.5.251:9094 -t topic"
+alias kafka-broker-query-available-topics="kafkacat -L -b 192.168.5.251:9094"
+
+alias helm-install="helm install <app> deployment/ -f deployment/values.yaml"
+alias helm-uninstall="helm uninstall <app>"
+
+alias k8s-logs="kubectl logs -f <pod-name>"
+alias k8s-describe="kubectl describe pods/<pod-name>"
+alias k8s-list-pods="kubectl get pods"
+alias k8s-list-pods-all="kubectl get pods -A"
+alias k8s-list-pod-ips="kubectl get svc"
+alias k8s-list-secrets="kubectl get secrets"
+alias k8s-list-all="kubectl get all"

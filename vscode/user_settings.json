@@ -1,9 +1,24 @@
 {
     "git.openRepositoryInParentFolders": "never",
-    "clangd.path": "/usr/bin/clangd",
-    "clangd.arguments": ["-log=verbose", 
-                         "-pretty", 
+    "clangd.path": "/usr/bin/clangd-18",
+    "clangd.arguments": ["--log=verbose", 
+                         "--pretty", 
                          "--background-index", 
                          "--compile-commands-dir=${workspaceFolder}/build/",
-                         "--enable-config"]
+                         "--enable-config"
+    ],
+    "editor.stickyScroll.enabled": false,
+    "workbench.tree.enableStickyScroll": false,
+    "editor.minimap.enabled": false,
+    "workbench.settings.applyToAllProfiles": [
+        "editor.fontSize"
+    ],
+    "editor.fontSize": 14,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "workbench.colorTheme": "Braver's Solarized Light (themed workbench)",
+    "C_Cpp.intelliSenseEngine": "disabled",
+    "C_Cpp.formatting": "clangFormat",
+    "C_Cpp.clang_format_path": "/usr/bin/clang-format-18",
+    "C_Cpp.clang_format_sortIncludes": true
 }

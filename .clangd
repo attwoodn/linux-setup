@@ -1,13 +1,19 @@
-CompileFlags:
-  Add: [-std=c++1z]
-  Remove: -std=*
+# CompileFlags:
+#   Add: [-std=c++1z]
+#   Remove: -std=*
 InlayHints:
   ParameterNames: No
   DeducedTypes: No
+  Designators: No     # controls the printing of indices in arrays
 Diagnostics:
   UnusedIncludes: Strict
+  MissingIncludes: Strict
+  Includes:
+    IgnoreHeader: [signal.h, stdio.h]
   ClangTidy:
     Add: [bugprone-*, cert-*, modernize-*, performance-*]
-    Remove: [bugprone-easily-swappable-parameters, modernize-use-trailing-return-type]
-    #CheckOptions:
-    #  readability-identifier-naming.VariableCase: CamelCase
+    Remove: [bugprone-easily-swappable-parameters, modernize-use-trailing-return-type, modernize-avoid-bind]
+    CheckOptions:
+      readability-identifier-naming.VariableCase: camelBack
+      readability-identifier-naming.ClassCase: CamelCase
+      readability-identifier-naming.ClassMethodCase: CamelCase
