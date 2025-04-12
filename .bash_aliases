@@ -171,13 +171,21 @@ alias kafka-consumer="kafkacat -C -b 192.168.5.251:9094 -t topic -o end"
 alias kafka-producer="kafkacat -P -b 192.168.5.251:9094 -t topic"
 alias kafka-broker-query-available-topics="kafkacat -L -b 192.168.5.251:9094"
 
+hi() {
+    helm install "$1" deployment/ -f deployment/values.yaml
+}
+
+hu() {
+    helm uninstall "$1"
+}
+
 alias helm-install="helm install <app> deployment/ -f deployment/values.yaml"
 alias helm-uninstall="helm uninstall <app>"
 
-alias k8s-logs="kubectl logs -f <pod-name>"
-alias k8s-describe="kubectl describe pods/<pod-name>"
-alias k8s-list-pods="kubectl get pods"
-alias k8s-list-pods-all="kubectl get pods -A"
-alias k8s-list-pod-ips="kubectl get svc"
-alias k8s-list-secrets="kubectl get secrets"
-alias k8s-list-all="kubectl get all"
+alias kl="kubectl logs -f --timestamps"
+alias kdp="kubectl describe pods"
+alias kgp="kubectl get pods"
+alias kgpa="kubectl get pods -A"
+alias kgsec="kubectl get secrets"
+alias kgsvc="kubectl get svc"
+alias kga="kubectl get all"

@@ -1,17 +1,21 @@
-# CompileFlags:
+CompileFlags:
+  Add: [-Wall]
 #   Add: [-std=c++1z]
 #   Remove: -std=*
 InlayHints:
   ParameterNames: No
   DeducedTypes: No
   Designators: No     # controls the printing of indices in arrays
+Style:
+  QuotedHeaders: ["src/.*", "include/.*"]
 Diagnostics:
   UnusedIncludes: Strict
   MissingIncludes: Strict
   Includes:
     IgnoreHeader: [signal.h, stdio.h]
   ClangTidy:
-    Add: [bugprone-*, cert-*, modernize-*, performance-*]
+    FastCheckFilter: None
+    Add: [bugprone-*, cert-*, modernize-*, performance-*, misc-unused-*, misc-use-anonymous-namespace, cppcoreguidelines-*]
     Remove: [bugprone-easily-swappable-parameters, modernize-use-trailing-return-type, modernize-avoid-bind]
     CheckOptions:
       readability-identifier-naming.VariableCase: camelBack
