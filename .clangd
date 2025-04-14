@@ -1,13 +1,13 @@
 CompileFlags:
-  Add: [-Wall]
+  Add: [-Wall, -std=c++17]
 #   Add: [-std=c++1z]
 #   Remove: -std=*
 InlayHints:
   ParameterNames: No
   DeducedTypes: No
   Designators: No     # controls the printing of indices in arrays
-Style:
-  QuotedHeaders: ["src/.*", "include/.*"]
+# Style:
+  # QuotedHeaders: ["src/.*", "include/.*"]
 Diagnostics:
   UnusedIncludes: Strict
   MissingIncludes: Strict
@@ -16,7 +16,7 @@ Diagnostics:
   ClangTidy:
     FastCheckFilter: None
     Add: [bugprone-*, cert-*, modernize-*, performance-*, misc-unused-*, misc-use-anonymous-namespace, cppcoreguidelines-*]
-    Remove: [bugprone-easily-swappable-parameters, modernize-use-trailing-return-type, modernize-avoid-bind]
+    Remove: [bugprone-easily-swappable-parameters, modernize-use-trailing-return-type, modernize-avoid-bind, cppcoreguidelines-avoid-magic-numbers, cppcoreguidelines-pro-bounds-pointer-arithmetic, cppcoreguidelines-pro-bounds-constant-array-index, cppcoreguidelines-pro-type-union-access]
     CheckOptions:
       readability-identifier-naming.VariableCase: camelBack
       readability-identifier-naming.ClassCase: CamelCase

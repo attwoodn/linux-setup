@@ -158,7 +158,7 @@ alias generate-compile-commands-json="make -s -C build_files/ clean cleandep DEB
 alias build-root="cmake -S . -B build && make -j 10 -C build -s" # configure and build from the project root directory
 alias cmake-trace="cmake .. --trace |& tee ../cmake-output.txt"
 
-alias clang-format-cpp-src="find src -iname \'*.h\' -iname \'*.hpp\' -o -iname \'*.cpp\' -print0 | xargs -0 clang-format-18 -i --style=\'file:/home/noah/.clang-format\'"
+alias clang-format-cpp-src="find src -iname \'*.h\' -o -iname \'*.hpp\' -o -iname \'*.cpp\' -print0 | xargs -0 clang-format-18 -i --style=\'file:/home/noah/.clang-format\'"
 alias clang-format-files="clang-format-18 -i --style=\'file:/home/noah/.clang-format\' <files>"
 
 # enters a running docker container and allows you to execute commands within it
